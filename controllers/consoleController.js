@@ -54,11 +54,33 @@ router.post('/games/:id/add', async(req,res) => {
     }
 })
 
-// Editing games inside controller
-router.get("/console/:consoleid/games/:id/update", (req,res) =>{
-    const games = ConsoleModel.findById(req.params.id)
+// Editing games inside console
+router.get("/console/:consoleid/games/:id/update", async (req,res) =>{
+    const games = await ConsoleModel.findById(req.params.id)
     res.render('console/updateGame', {games})
+    console.log(req.params.id)
+    console.log(req.params.consoleid)
+
 })
 
+
+// Deleting games inside console
+router.delete("/console/:consoleid/games/:id", async (req, res) => {
+    try {
+      const console = await ConsoleModel.findById(req.params.consoleid);
+  
+      if (!console) {
+        return res.status(404).send('Page not found');
+      }
+      // Remove the game from the games array
+      console.games.pull(req.params.id);
+      await console.save();
+  
+    } catch (e) {
+      console.error(e);
+
+    }
+  });
+  
 
 module.exports = router

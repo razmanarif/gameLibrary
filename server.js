@@ -12,11 +12,11 @@ const consoleController = require('./controllers/consoleController')
 mongoose.connect(process.env.MONGO).then(()=> console.log("Connected to database"))
 
 // add middlewares here
+server.use(methodOverride('_method'))
 server.use(express.static("public"));
 server.use(express.urlencoded({ extended: true }));
 server.use(expressLayouts);
 server.set("view engine", "ejs");
-server.use(methodOverride('_method'))
 
 //authorisation controllers go here
 

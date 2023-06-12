@@ -1,5 +1,5 @@
 <h1>Update Game</h1>
-<form method="POST" action="/games/<%= games %>/update?_method=PUT" >
+<form action="/games/<%= games._id %>/update?_method=PUT" method="POST"  >
     <div>
         <label for="gameName">
             <input type="text" name="gameName" value="<%= games.gameName %>">
