@@ -18,7 +18,7 @@ const consoleSchema = new Schema({
     gameName: {type: String, required: true},
     dateBoughtGame: {type: Date, required: true},
     gamePrice: {type: Number, required: true},
-    isFinished: {type: Boolean},
+    isCompleted: {type: Boolean},
     hoursPlayed: {type: Number, required: true}
    }]
 });

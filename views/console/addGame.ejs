@@ -2,26 +2,31 @@
 <form action="/games/<%= consoleId %>/add" method="POST">
     <div>
         <label for="gameName">
+            Game Name:
             <input type="text" placeholder="Game Name" name="gameName">
         </label>
     </div>
     <div>
         <label for="dateBoughtGame">
+            Date Bought: 
             <input type="date" name="dateBoughtGame">
         </label>
     </div>
     <div>
         <label for="gamePrice">
-            <input type="text" placeholder="Game Price" name="gamePrice">
+            Game Price(RM): 
+            <input type="text" placeholder="Game Price (RM)" name="gamePrice">
         </label>
     </div>
     <div>
-        <label for="isFinished">
+        <label for="isCompleted">
             <input type="checkbox" name="isCompleted">
+            Game Completed
         </label>
     </div>
     <div>
         <label for="hoursPlayed">
+            Hours Played: 
             <input type="text" placeholder="Hours Played" name="hoursPlayed">
         </label>
     </div>

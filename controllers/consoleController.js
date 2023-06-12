@@ -41,18 +41,28 @@ router.get("/games/:id/add", (req,res) => {
     res.render('console/addGame', {consoleId: req.params.id})
 })
 
-router.post('/games/:id/add', async(req,res) => {
-    try{
-        await ConsoleModel.findByIdAndUpdate(req.params.id, {
-            $push: {
-                games: req.body
-            }
-        })
-        res.redirect("/")
+router.post('/games/:id/add', async (req, res) => {
+    try {
+        // taking the on/off from the checkbox and converting to true/false
+        if(req.body.isCompleted == 'on'){
+        req.body.isCompleted = true
+      } else {
+        req.body.isCompleted = false
+      }
+  
+      await ConsoleModel.findByIdAndUpdate(req.params.id, {
+        $push: {
+          games: req.body
+        },
+      });
+  
+      res.redirect("/");
     } catch (e) {
-        console.log(e)
+      console.log(e);
     }
-})
+  });
+  
+  
 
 // Editing games inside console
 router.get("/console/:consoleid/games/:id/update", async (req,res) =>{
