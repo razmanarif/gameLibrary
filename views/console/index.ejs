@@ -1,0 +1,18 @@
+<h1>My Consoles</h1>
+<div>
+    <% consoleList.forEach(consoleItem => { %>
+        <div>
+            <div>Console Name : <%= consoleItem.name %></div>
+            <div>Manufacturer : <%= consoleItem.manufacturer %></div>
+            <div>Date Bought: <%= consoleItem.dateBought %></div>
+            <div>
+                <div>
+                    <a href="/console/<%= consoleItem._id %>/details">Show Games</a>
+                </div>
+                <div>
+                    <a href="/games/<%= consoleItem._id %>/add">Add Games</a>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>

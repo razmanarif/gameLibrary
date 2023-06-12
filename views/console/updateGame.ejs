@@ -1,0 +1,29 @@
+<h1>Update Game</h1>
+<form method="POST" action="/games/<%= games %>/update?_method=PUT" >
+    <div>
+        <label for="gameName">
+            <input type="text" name="gameName" value="<%= games.gameName %>">
+        </label>
+    </div>
+    <div>
+        <label for="dateBoughtGame">
+            <input type="date" name="dateBoughtGame" value="<%=games.dateBoughtGame %>">
+        </label>
+    </div>
+    <div>
+        <label for="gamePrice">
+            <input type="text" name="gamePrice" value="<%= games.gamePrice %>">
+        </label>
+    </div>
+    <div>
+        <label for="isFinished">
+            <input type="checkbox" name="isCompleted" value="<%= games.isFinished %>">
+        </label>
+    </div>
+    <div>
+        <label for="hoursPlayed">
+            <input type="text" name="hoursPlayed" value="<%= games.hoursPlayed %>">
+        </label>
+    </div>
+    <button>Update Game</button>
+</form>

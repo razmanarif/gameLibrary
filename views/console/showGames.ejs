@@ -1,0 +1,19 @@
+<h1><%= consoleItem.name %></h1>
+<div>
+    <h3>List of Games</h3>
+</div>
+    <% consoleItem.games.forEach( game => { %>
+        <div>
+            <div>Name: <%= game.gameName %></div>
+            <div>Date Bought: <%= game.dateBoughtGame %></div>
+            <div>Game Price (RM): <%= game.gamePrice %></div>
+            <div>Game Completed: <%= game.isFinished %></div>
+            <div>Hours Played: <%= game.hoursPlayed %></div>
+            <div>
+                <a href="games/<%= game._id %>/update">Update</a>
+            </div>
+            <div>
+                <a href="games/<%= game._id %>/remove">Remove</a>
+            </div>
+        <% }) %>
+        </div>
