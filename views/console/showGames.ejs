@@ -1,29 +1,31 @@
-<h1><%= consoleItem.name %></h1>
 <div>
     <h3>List of Games</h3>
 </div>
 <div>
-    <form action="/console/consoleItem._id/details" method="GET">
-        <label>Name</label>
-        <input type="text" name="gameName"> 
+    <form action="/console/<%= consoleItem._id %>/details" method="GET">
+        <label>Search</label>
+        <input type="text" name="gameName" value="<%= searchQuery || '' %>">
         <button type="submit">Search</button>
     </form>
 </div>
-    <% consoleItem.games.forEach( game => { %>
+
+<% games.forEach(game => { %>
+    <div>
+        <div>Name: <%= game.gameName %></div>
+        <div>Date Bought: <%= game.dateBoughtGame.toLocaleDateString('en-GB') %></div>
+        <div>Game Price (RM): <%= game.gamePrice %></div>
+        <div>Game Completed: <%= game.isCompleted %></div>
+        <div>Hours Played: <%= game.hoursPlayed %></div>
         <div>
-            <div>Name: <%= game.gameName %></div>
-            <div>Date Bought: <%= game.dateBoughtGame %></div>
-            <div>Game Price (RM): <%= game.gamePrice %></div>
-            <div>Game Completed: <%= game.isFinished %></div>
-            <div>Hours Played: <%= game.hoursPlayed %></div>
-            <div>
-                <a href="games/<%= game._id %>/update">Update</a>
-            </div>
-            <div>
-                <!-- <a href="games/<%= game._id %>/remove">Remove</a> -->
-                <form action="games/<%= game._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Remove">
-                </form>
-            </div>
-        <% }) %>
+            <a href="games/<%= game._id %>/update">Update</a>
+        </div>
+        <div>
+            <form action="games/<%= game._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Remove">
+            </form>
+        </div>
+    </div>
+<% }) %>
+<div>
+    <a href="/games/<%= consoleItem._id %>/add">Add Games</a>
 </div>

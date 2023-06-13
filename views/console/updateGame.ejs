@@ -1,27 +1,32 @@
 <h1>Update Game</h1>
-<form action="/games/<%= games._id %>/update?_method=PUT" method="POST">
+<form action="/console/<%= consoleItem._id %>/games/<%= game._id %>/update?_method=PUT" method="POST">
     <div>
         <label for="gameName">
+            Game Name: 
             <input type="text" name="gameName" value="<%= games.gameName %>">
         </label>
     </div>
     <div>
         <label for="dateBoughtGame">
+            Date Bought: 
             <input type="date" name="dateBoughtGame" value="<%=games.dateBoughtGame %>">
         </label>
     </div>
     <div>
         <label for="gamePrice">
+            Game Price (RM):
             <input type="text" name="gamePrice" value="<%= games.gamePrice %>">
         </label>
     </div>
     <div>
         <label for="isCompleted">
             <input type="checkbox" name="isCompleted" value="<%= games.isCompleted %>">
+            Game Completed
         </label>
     </div>
     <div>
         <label for="hoursPlayed">
+            Hours Played:
             <input type="text" name="hoursPlayed" value="<%= games.hoursPlayed %>">
         </label>
     </div>

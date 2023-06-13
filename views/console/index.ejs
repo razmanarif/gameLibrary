@@ -4,7 +4,7 @@
         <div>
             <div>Console Name : <%= consoleItem.name %></div>
             <div>Manufacturer : <%= consoleItem.manufacturer %></div>
-            <div>Date Bought: <%= consoleItem.dateBought %></div>
+            <div>Date Bought: <%= consoleItem.dateBought.toLocaleDateString('en-GB') %></div>
             <div>
                 <div>
                     <a href="/console/<%= consoleItem._id %>/details">Show Games</a>
