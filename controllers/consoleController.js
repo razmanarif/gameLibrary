@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const ConsoleModel = require('../models/consoleModel')
+const { DateTime } = require("luxon");
 
 router.get("/", async(req,res) => {
     try{
@@ -12,6 +13,7 @@ router.get("/", async(req,res) => {
 
 // showing all games for a console
 router.get('/console/:id/details', async(req,res) => {
+    let searchOptions = {}
     try{
         const consoleItem = await ConsoleModel.findById(req.params.id)
         res.render('console/showGames', {consoleItem: consoleItem})
@@ -43,7 +45,7 @@ router.get("/games/:id/add", (req,res) => {
 
 router.post('/games/:id/add', async (req, res) => {
     try {
-        // taking the on/off from the checkbox and converting to true/false
+        // converting the on/off value from checkbox to true/false
         if(req.body.isCompleted == 'on'){
         req.body.isCompleted = true
       } else {
@@ -66,12 +68,26 @@ router.post('/games/:id/add', async (req, res) => {
 
 // Editing games inside console
 router.get("/console/:consoleid/games/:id/update", async (req,res) =>{
-    const games = await ConsoleModel.findById(req.params.id)
-    res.render('console/updateGame', {games})
-    console.log(req.params.id)
-    console.log(req.params.consoleid)
+    const games = await ConsoleModel.findOne({'games._id': req.params.id}, {"games.$": 1})
 
+    const game = games.games[0]
+    // console.log(DateTime.fromJSDate(game.dateBoughtGame).toFormat("yyyy-MM-dd"))
+    res.render("console/updateGame",{ games: {
+
+      dateBoughtGame: DateTime.fromJSDate(game.dateBoughtGame).toFormat("yyyy-MM-dd"),
+      gameName: game.gameName,
+      gamePrice: game.gamePrice,
+      isCompleted: game.isCompleted,
+      hoursPlayed: game.hoursPlayed
+    }
+  })
+    // console.log(req.params.consoleid)
+    // console.log(req.params.id)
+    // console.log(games)
 })
+
+//router.put to edit games go here
+
 
 
 // Deleting games inside console
