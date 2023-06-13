@@ -127,6 +127,13 @@ router.get("/console/:consoleid/games/:id/update", async (req,res) =>{
 
 router.put("/console/:consoleid/games/:id/update", async (req, res) => {
   try {
+    // converting the on/off value from checkbox to true/false
+    if(req.body.isCompleted == 'on'){
+    req.body.isCompleted = true
+    } else {
+    req.body.isCompleted = false
+    }
+    
     const consoleId = req.params.consoleid;
     const gameId = req.params.id;
     const updatedGame = req.body;
