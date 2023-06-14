@@ -1,18 +1,32 @@
-<h1>My Consoles</h1>
-<div>
+
+<div class="p-3 mb-2 bg-light text-dark d-flex flex-column vh-100">
+    <h1>My Consoles</h1>
+<div class="row">
+<div class="col">You've spent a total of <b>RM <%= priceSum.toLocaleString() %></b> on video games</div>
+<div class="col">You've spent <b><%= hoursSum.toLocaleString() %></b> hours playing your games</div>
+</div>
+<div class="row">
     <% consoleList.forEach(consoleItem => { %>
-        <div>
-            <div>Console Name : <%= consoleItem.name %></div>
-            <div>Manufacturer : <%= consoleItem.manufacturer %></div>
-            <div>Date Bought: <%= consoleItem.dateBought.toLocaleDateString('en-GB') %></div>
+        <div class="col-2 card" style="margin:35px; width:250px">
+            <img src="/uploads/<%= consoleItem.consolePicture %>" style="width: 230px; height: 170px;">
+            <div><%= consoleItem.manufacturer %> <%= consoleItem.name %></div>
+            <div>Bought on <%= consoleItem.dateBought.toLocaleDateString('en-GB') %></div>
+            <div></div>
             <div>
                 <div>
-                    <a href="/console/<%= consoleItem._id %>/details">Show Games</a>
+                    <a href="/console/<%= consoleItem._id %>/details" class="btn btn-primary" style="margin:5px; width:150px">Show Games</a>
                 </div>
                 <div>
-                    <a href="/games/<%= consoleItem._id %>/add">Add Games</a>
+                    <a href="/games/<%= consoleItem._id %>/add" class="btn btn-success" style="margin:5px; width:150px">Add Games</a>
                 </div>
+                <div>
+                    <form action="/console/<%= consoleItem._id %>/details?_method=DELETE" method="POST">
+                        <input class="btn btn-danger" style="margin:5px; width:150px" type="submit" value="Remove">
+                    </form>
+                </div>
+                
             </div>
         </div>
     <% }) %>
+</div>
 </div>

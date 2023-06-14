@@ -1,5 +1,5 @@
 <h1>Add a console</h1>
-<form action="/add_console" method="POST">
+<form action="/add_console" method="POST" enctype="multipart/form-data">
     <div>
     <label for="name">
         <input type="text" placeholder="Console Name" name="name">
@@ -13,6 +13,11 @@
     <div>
         <label for="dateBought">
             <input type="date" name="dateBought">
+        </label>
+    </div>
+    <div>
+        <label for="dateBought">
+            <input type="file" name="consolePicture">
         </label>
     </div>
     <button>Add Console</button>

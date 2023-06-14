@@ -3,25 +3,31 @@
 </div>
 <div>
     <form action="/console/<%= consoleItem._id %>/details" method="GET">
-        <label>Search</label>
-        <input type="text" name="gameName" value="<%= searchQuery || '' %>">
-        <button type="submit">Search</button>
+        <!-- <label>Search</label> -->
+        <input class='form-control' style="width: 400px" placeholder="Search your game library" type="text" name="gameName" value="<%= searchQuery || '' %>">
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
-
 <% games.forEach(game => { %>
+    <% let gameStatus = "" %>
+    <% if (game.isCompleted == true) { %>
+        <% gameStatus = "Completed"; %>
+        <% } else { %>
+            <% gameStatus = "Not Completed" %>
+        <% } %>
     <div>
-        <div>Name: <%= game.gameName %></div>
-        <div>Date Bought: <%= game.dateBoughtGame.toLocaleDateString('en-GB') %></div>
-        <div>Game Price (RM): <%= game.gamePrice %></div>
-        <div>Game Completed: <%= game.isCompleted %></div>
-        <div>Hours Played: <%= game.hoursPlayed %></div>
+        <div><b><%= game.gameName %></b></div>
+        <div>Bought on <%= game.dateBoughtGame.toLocaleDateString('en-GB') %></div>
+        <div>RM <%= game.gamePrice %></div>
+        <div>Played for <%= game.hoursPlayed %> hours</div>
+        <div><%= gameStatus %></div>
+
         <div>
-            <a href="games/<%= game._id %>/update">Update</a>
+            <a href="games/<%= game._id %>/update" class="btn btn-success">Update</a>
         </div>
         <div>
             <form action="games/<%= game._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Remove">
+                <input class="btn btn-danger" type="submit" value="Remove">
             </form>
         </div>
     </div>

@@ -20,7 +20,14 @@ const consoleSchema = new Schema({
     gamePrice: {type: Number, required: true},
     isCompleted: {type: Boolean},
     hoursPlayed: {type: Number, required: true}
-   }]
+   }],
+   createdBy: {
+      type: mongoose.ObjectId,
+      ref: "User",
+    },
+   consolePicture: {
+      type: String
+   }
 });
 
 const consoleModel = mongoose.model("ConsoleModel", consoleSchema)
