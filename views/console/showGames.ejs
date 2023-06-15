@@ -1,3 +1,4 @@
+<div class="p-3 mb-2 bg-light text-dark d-flex flex-column vh-100">
 <div>
     <h3>List of Games</h3>
 </div>
@@ -8,6 +9,7 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
+<div class="row">
 <% games.forEach(game => { %>
     <% let gameStatus = "" %>
     <% if (game.isCompleted == true) { %>
@@ -15,8 +17,8 @@
         <% } else { %>
             <% gameStatus = "Not Completed" %>
         <% } %>
-    <div>
-        <div><b><%= game.gameName %></b></div>
+    <div class="col-2 card text-dark" style="margin:35px; width:250px; padding:5px;">
+        <div><b><h2><%= game.gameName %></h2></b></div>
         <div>Bought on <%= game.dateBoughtGame.toLocaleDateString('en-GB') %></div>
         <div>RM <%= game.gamePrice %></div>
         <div>Played for <%= game.hoursPlayed %> hours</div>
@@ -32,6 +34,8 @@
         </div>
     </div>
 <% }) %>
+</div>
 <div>
     <a href="/games/<%= consoleItem._id %>/add">Add Games</a>
+</div>
 </div>
