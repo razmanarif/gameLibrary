@@ -1,34 +1,33 @@
-<h1>Update Game</h1>
-<form action="/console/<%= consoleId %>/games/<%= game._id %>/update?_method=PUT" method="POST">
-    <div>
-        <label for="gameName">
-            Game Name: 
-            <input type="text" name="gameName" value="<%= games.gameName %>">
-        </label>
+
+<div class="row mt-4">
+    <h1 class="text-center">Update Game</h1>
+    <div class="col-3 mx-auto">
+        <form action="/console/<%= consoleId %>/games/<%= game._id %>/update?_method=PUT" method="POST">
+            <div class="col mb-2">
+                <label for="gameName" class="form-label">Game Name:</label>
+                <input class="form-control" type="text" name="gameName" value="<%= games.gameName %>">
+            </div>
+            <div class="col mb-2">
+                <label for="dateBoughtGame" class="form-label">Date Bought:</label>
+                <input class="form-control" type="date" name="dateBoughtGame" value="<%=games.dateBoughtGame %>">
+            </div>
+            <div class="col mb-2">
+                <label for="gamePrice" class="form-label">Game Price (RM):</label>
+                <input class="form-control" type="text" name="gamePrice" value="<%= games.gamePrice %>">
+            </div>
+            <div class="col mb-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="isCompleted" value="<%= games.isCompleted %>" id="isCompleted">
+                    <label class="form-check-label" for="isCompleted">Game Completed</label>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <label for="hoursPlayed" class="form-label">Hours Played:</label>
+                <input class="form-control" type="text" name="hoursPlayed" value="<%= games.hoursPlayed %>">
+            </div>
+            <div class="d-grid col">
+                <button class="btn btn-warning" type="submit">Update Game</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="dateBoughtGame">
-            Date Bought: 
-            <input type="date" name="dateBoughtGame" value="<%=games.dateBoughtGame %>">
-        </label>
-    </div>
-    <div>
-        <label for="gamePrice">
-            Game Price (RM):
-            <input type="text" name="gamePrice" value="<%= games.gamePrice %>">
-        </label>
-    </div>
-    <div>
-        <label for="isCompleted">
-            <input type="checkbox" name="isCompleted" value="<%= games.isCompleted %>">
-            Game Completed
-        </label>
-    </div>
-    <div>
-        <label for="hoursPlayed">
-            Hours Played:
-            <input type="text" name="hoursPlayed" value="<%= games.hoursPlayed %>">
-        </label>
-    </div>
-    <button>Update Game</button>
-</form>
+</div>

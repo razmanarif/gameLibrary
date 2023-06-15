@@ -1,34 +1,33 @@
-<h1>Add Games</h1>
-<form action="/games/<%= consoleId %>/add" method="POST">
-    <div>
-        <label for="gameName">
-            Game Name:
-            <input type="text" placeholder="Game Name" name="gameName">
-        </label>
-    </div>
-    <div>
-        <label for="dateBoughtGame">
-            Date Bought: 
-            <input type="date" name="dateBoughtGame">
-        </label>
-    </div>
-    <div>
-        <label for="gamePrice">
-            Game Price(RM): 
-            <input type="text" placeholder="Game Price (RM)" name="gamePrice">
-        </label>
-    </div>
-    <div>
-        <label for="isCompleted">
-            <input type="checkbox" name="isCompleted">
-            Game Completed
-        </label>
-    </div>
-    <div>
-        <label for="hoursPlayed">
-            Hours Played: 
-            <input type="text" placeholder="Hours Played" name="hoursPlayed">
-        </label>
-    </div>
-    <button>Add Game</button>
-</form>
+<div class="row mt-5">
+    <h1 class="text-center">Add Games</h1>
+    <form action="/games/<%= consoleId %>/add" method="POST">
+      <div class="col-4 mx-auto">
+        <div class="col mb-2">
+          <label for="gameName" class="form-label">Game Name:</label>
+          <input class="form-control" type="text" placeholder="Game Name" name="gameName">
+        </div>
+        <div class="col mb-2">
+          <label for="dateBoughtGame" class="form-label">Date Bought:</label>
+          <input class="form-control" type="date" name="dateBoughtGame">
+        </div>
+        <div class="col mb-2">
+          <label for="gamePrice" class="form-label">Game Price (RM):</label>
+          <input class="form-control" type="text" placeholder="Game Price (RM)" name="gamePrice">
+        </div>
+        <div class="col mb-2 form-check">
+          <input class="form-check-input" type="checkbox" name="isCompleted" id="isCompleted">
+          <label class="form-check-label" for="isCompleted">Game Completed</label>
+        </div>
+        <div class="col mb-2">
+          <label for="hoursPlayed" class="form-label">Hours Played:</label>
+          <input class="form-control" type="text" placeholder="Hours Played" name="hoursPlayed">
+        </div>
+        
+        <div class="d-grid col">
+            <button class="btn btn-warning" type="submit">Add Game</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  

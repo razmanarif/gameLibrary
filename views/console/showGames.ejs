@@ -1,41 +1,46 @@
 <div class="p-3 mb-2 bg-light text-dark d-flex flex-column vh-100">
-<div>
-    <h3>List of Games</h3>
-</div>
-<div>
-    <form action="/console/<%= consoleItem._id %>/details" method="GET">
-        <!-- <label>Search</label> -->
-        <input class='form-control' style="width: 400px" placeholder="Search your game library" type="text" name="gameName" value="<%= searchQuery || '' %>">
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-</div>
-<div class="row">
-<% games.forEach(game => { %>
-    <% let gameStatus = "" %>
-    <% if (game.isCompleted == true) { %>
+    <div>
+        <h3>List of Games</h3>
+    </div>
+    <div class="d-flex flex-row">
+        <form action="/console/<%= consoleItem._id %>/details" method="GET">
+            <div class="p-2">
+                <input style="width: 400px" placeholder="Search your game library" type="text" name="gameName" value="<%= searchQuery || '' %>">
+                <button type="submit" class="btn btn-primary p-2">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <a class="btn btn-success" href="/games/<%= consoleItem._id %>/add">Add Games</a>
+    </div>
+
+    <div class="row">
+        <% games.forEach(game => { %>
+        <% let gameStatus = "" %>
+        <% if (game.isCompleted == true) { %>
         <% gameStatus = "Completed"; %>
         <% } else { %>
-            <% gameStatus = "Not Completed" %>
+        <% gameStatus = "Not Completed" %>
         <% } %>
-    <div class="col-2 card text-dark" style="margin:35px; width:250px; padding:5px;">
-        <div><b><h2><%= game.gameName %></h2></b></div>
-        <div>Bought on <%= game.dateBoughtGame.toLocaleDateString('en-GB') %></div>
-        <div>RM <%= game.gamePrice %></div>
-        <div>Played for <%= game.hoursPlayed %> hours</div>
-        <div><%= gameStatus %></div>
+        <div class="col-2 card text-dark border-dark" style="margin:35px; width:250px; padding:5px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="mt-3 mb-3">
+                <b><h2><%= game.gameName %></h2></b>
+            </div>
+            <div>Bought on <%= game.dateBoughtGame.toLocaleDateString('en-GB') %></div>
+            <div>RM <%= game.gamePrice.toLocaleString() %></div>
+            <div>Played for <%= game.hoursPlayed %> hours</div>
+            <div><%= gameStatus %></div>
 
-        <div>
-            <a href="games/<%= game._id %>/update" class="btn btn-success">Update</a>
+            <div class="d-grid mt-auto mt-2 mb-2">
+                <a href="games/<%= game._id %>/update" class="btn btn-success">Update</a>
+            </div>
+            <div>
+                <form class="d-grid mt-2 mb-2" action="games/<%= game._id %>?_method=DELETE" method="POST">
+                    <input class="btn btn-danger class d-grid" type="submit" value="Remove">
+                </form>
+            </div>
         </div>
-        <div>
-            <form action="games/<%= game._id %>?_method=DELETE" method="POST">
-                <input class="btn btn-danger" type="submit" value="Remove">
-            </form>
-        </div>
+        <% }) %>
     </div>
-<% }) %>
-</div>
-<div>
-    <a href="/games/<%= consoleItem._id %>/add">Add Games</a>
-</div>
 </div>

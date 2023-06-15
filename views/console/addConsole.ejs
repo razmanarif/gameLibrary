@@ -1,24 +1,26 @@
-<h1>Add a console</h1>
-<form action="/add_console" method="POST" enctype="multipart/form-data">
-    <div>
-    <label for="name">
-        <input type="text" placeholder="Console Name" name="name">
-    </label>
+<div class="row mt-4">
+    <h1 class="text-center">Add a console</h1>
+    <div class="col-3 mx-auto">
+        <form action="/add_console" method="POST" enctype="multipart/form-data">
+            <div class="col mb-2">
+                <label for="name" class="form-label">Console Name</label>
+                <input class="form-control" type="text" placeholder="Console Name" name="name">
+            </div>
+            <div class="col mb-2">
+                <label for="manufacturer" class="form-label">Console Manufacturer</label>
+                <input class="form-control" type="text" placeholder="Console Manufacturer" name="manufacturer">
+            </div>
+            <div class="col mb-2">
+                <label for="dateBought" class="form-label">Date Bought</label>
+                <input class="form-control" type="date" name="dateBought">
+            </div>
+            <div class="col mb-2">
+                <label for="consolePicture" class="form-label">Upload a Console Picture</label>
+                <input class="form-control" type="file" name="consolePicture">
+            </div>
+            <div class="d-grid col">
+                <button class="btn btn-warning" type="submit">Add Console</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="manufacturer">
-            <input type="text" placeholder="Console Manufacturer" name="manufacturer">
-        </label>
-    </div>
-    <div>
-        <label for="dateBought">
-            <input type="date" name="dateBought">
-        </label>
-    </div>
-    <div>
-        <label for="dateBought">
-            <input type="file" name="consolePicture">
-        </label>
-    </div>
-    <button>Add Console</button>
-</form>
+</div>

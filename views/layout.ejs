@@ -21,11 +21,13 @@
       />
     <% } %>
 
-    <a href="/" class="btn btn-primary">Home</a>
-    <a href="/add_console" class="btn btn-primary">Add a console</a>
+    <a href="/" class="btn btn-light">Home</a>
+    <a href="/add_console" class="btn btn-light">Add a console</a>
     <% if(currentUser){ %>
-    <a href="/auth/logout" class="btn btn-primary" data-method="DELETE">Logout</a>
+    <a href="/auth/logout" class="btn btn-danger" data-method="DELETE">Logout</a>
     <% } %> 
+
+
 </nav>
 </div>
 <%- body %>

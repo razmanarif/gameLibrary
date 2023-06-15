@@ -7,34 +7,6 @@ const { upload } = require("../config/multer.config");
 const secureUser = require("../config/securepage.config")
 
 
-// router.get("/", secureUser, async (req, res) => {
-//   try {
-//     const consoleList = await ConsoleModel.find();
-
-//     // calculate the sum of gamePrice for all consoles
-//     const priceSum = consoleList.reduce((total, console) => {
-//       return total + console.games.reduce((gameTotal, game) => {
-//         return gameTotal + game.gamePrice;
-//       }, 0);
-//     }, 0);
-
-//     // calculate the sum of hoursPlayed for all consoles
-//     const hoursSum = consoleList.reduce((total, console) => {
-//       return total + console.games.reduce((gameTotal, game) => {
-//         return gameTotal + game.hoursPlayed;
-//       }, 0);
-//     }, 0);
-    
-//     res.render("console/index", {
-//       consoleList: consoleList,
-//       priceSum: priceSum,
-//       hoursSum: hoursSum
-//     });
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
-
 // displaying consoles added by user and total money & time spent on games
 router.get("/", secureUser, async (req, res) => {
   try {
