@@ -36,7 +36,7 @@ SECRET=
 ```
 Input your own port, mongoDB cluster link, and secret
 
-# Running the application
+### Running the application
 ```
 $ node server
 ```
@@ -47,5 +47,5 @@ $ nodemon server
 if you have nodemon installed 
 
 
-### Demo 
+## Demo 
 A demo version of the application can be found [here](https://play-folio.onrender.com/)
