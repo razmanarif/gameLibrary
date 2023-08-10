@@ -12,28 +12,40 @@ Ensure you have Node.js and a package manager such as npm or yarn installed on y
 
 ### Installing
 
-
+### Clone the repository
 ```
-# Clone the repository
 $ git clone https://github.com/razmanarif/gameLibrary.git
 $ cd game Library
+```
 
-# Installing dependencies
+### Installing dependencies
+```
 $ npm install   # or yarn install
+```
 
-# Create a .env file
+### Create a .env file
+```
 $ touch .env
+```
 
-# Input the following in your .env
+### Input the following in your .env
+```
 PORT=
 MONGODB=
 SECRET=
-#Input your own port, mongoDB cluster link, and secret
+```
+Input your own port, mongoDB cluster link, and secret
 
 # Running the application
-$ node server  # you can also run nodemon server if you have nodeman installed.
-
 ```
+$ node server
+```
+or 
+```
+$ nodemon server
+```
+if you have nodemon installed 
+
 
 ### Demo 
 A demo version of the application can be found [here](https://play-folio.onrender.com/)
