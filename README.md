@@ -20,7 +20,11 @@ $ cd game Library
 
 ### Installing dependencies
 ```
-$ npm install   # or yarn install
+$ npm install
+```
+or 
+```
+$ yarn install
 ```
 
 ### Create a .env file
